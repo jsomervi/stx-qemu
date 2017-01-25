@@ -310,7 +310,6 @@ static void pc_init1(MachineState *machine,
  * HW_COMPAT_*, PC_COMPAT_*, or * pc_*_machine_options().
  */
 
-#if 0 /* Disabled for Red Hat Enterprise Linux */
 static void pc_compat_2_3(MachineState *machine)
 {
     PCMachineState *pcms = PC_MACHINE(machine);
@@ -325,6 +324,7 @@ static void pc_compat_2_2(MachineState *machine)
     machine->suppress_vmdesc = true;
 }
 
+#if 0 /* Disabled for Red Hat Enterprise Linux */
 static void pc_compat_2_1(MachineState *machine)
 {
     pc_compat_2_2(machine);
@@ -405,6 +405,7 @@ static void pc_xen_hvm_init(MachineState *machine)
     pci_create_simple(pcms->bus, -1, "xen-platform");
 }
 #endif
+#endif /* Disabled for Red Hat Enterprise Linux */
 
 #define DEFINE_I440FX_MACHINE(suffix, name, compatfn, optionfn) \
     static void pc_init_##suffix(MachineState *machine) \
@@ -563,6 +564,7 @@ DEFINE_I440FX_MACHINE(v2_2, "pc-i440fx-2.2", pc_compat_2_2,
                       pc_i440fx_2_2_machine_options);
 
 
+#if 0 /* Disabled for Red Hat Enterprise Linux */
 static void pc_i440fx_2_1_machine_options(MachineClass *m)
 {
     PCMachineClass *pcmc = PC_MACHINE_CLASS(m);
